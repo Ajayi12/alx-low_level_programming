@@ -1,12 +1,16 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include <time.h>
-/* more headers goes there */
-
-/* betty style doc for function main goes there */
+#include <stdio.h>
+/**
+ * main - program that generate and check a random number
+ * Return: Always 0 (sucess)
+ */
 int main(void)
 {
 	int n;
+
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 	if (n > 0)
 	{
 		printf("is positive\n");
@@ -19,8 +23,5 @@ int main(void)
 	{
 		printf("is negative\n");
 	}
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	/* your code goes there */
 	return (0);
 }
