@@ -8,6 +8,7 @@ int main()
 {
 	char c;
 	char C;
+
 	c = 'a';
 	C = 'A';
 	while (c <= 'z' && C <= 'Z')
@@ -18,4 +19,5 @@ int main()
 		c++;
 		C++;
 	}
+	return(0);
 }
