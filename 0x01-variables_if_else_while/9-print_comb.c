@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - program that print numbers using putchar
+ * main - program that prints all possible combination of single digit
  * Return: Always 0 (success)
  */
 int main(void)
@@ -10,9 +10,10 @@ int main(void)
 	c = 0;
 	while (c < 10)
 	{
-		printf("%d", c);
+		putchar(c + '0');
+		putchar(',');
 		c++;
 	}
-	printf("\n");
+	putchar('\n');
 	return (0);
 }
