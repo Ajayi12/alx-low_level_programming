@@ -5,7 +5,7 @@
  */
 int main(void)
 {
-        int c;
+	int c;
 	int j;
 
 	c = 0;
@@ -16,7 +16,7 @@ int main(void)
 		{
 			putchar(c + '0');
 			putchar(j + '0');
-			if ( c != 8 || j != 9)
+			if (c != 8 || j != 9)
 			{
 				putchar(',');
 				putchar(' ');
