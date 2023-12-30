@@ -5,8 +5,14 @@
  */
 int main(void)
 {
+	char c;
+
 	c = "_putchar";
-	_putchar(c);
+	while (c != '\0')
+	{	
+		_putchar(c);
+		c++;
+	}
 	_putchar('\n');
 	return (0);
 }
