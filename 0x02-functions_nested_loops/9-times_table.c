@@ -26,13 +26,17 @@ void times_table(void)
 			if (i != 9)
 			{
 				_putchar(',');
-				if (j >= 10)
+				if (j < 10)
+				{
+					_putchar(' ');
+					_putchar(' ');
+				}
+				else if (j == 10 )
 				{
 					_putchar(' ');
 				}
 				else
 				{
-					_putchar(' ');
 					_putchar(' ');
 				}
 			}
