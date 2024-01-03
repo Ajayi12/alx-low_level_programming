@@ -5,7 +5,7 @@
  */
 int main(void)
 {
-	long long int n, first, second, next;
+	long int n, first, second, next;
 
 	first = 0;
 	second = 1;
@@ -13,10 +13,11 @@ int main(void)
 	while (n <= 50)
 	{
 		next = first + second;
-		printf("%lld, ", next);
+		printf("%ld, ", next);
 		first = second;
 		second = next;
 		n++;
 	}
 	printf("\n");
+	return (0);
 }
