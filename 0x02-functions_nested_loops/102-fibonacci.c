@@ -14,12 +14,12 @@ int main(void)
 	{
 		next = first + second;
 		if (n != 49)
-		{	
+		{
 			printf("%ld, ", next);
 		}
 		else
 		{
-			printf("%ld ", next);
+			printf("%ld", next);
 		}
 		first = second;
 		second = next;
