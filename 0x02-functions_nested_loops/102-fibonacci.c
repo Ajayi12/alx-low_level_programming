@@ -10,7 +10,7 @@ int main(void)
 	first = 0;
 	second = 1;
 	n = 0;
-	while (n <= 50)
+	while (n < 50)
 	{
 		next = first + second;
 		printf("%ld, ", next);
