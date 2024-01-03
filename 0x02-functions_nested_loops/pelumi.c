@@ -1,35 +1,20 @@
 #include <stdio.h>
 
-/* Example implementation of _putchar */
-void _putchar(char c) {
-    putchar(c);
-}
+int main() {
+    // Initialize the sum
+    int sum = 0;
 
-/* Function to print a two-digit number with leading zero using _putchar */
-void print_two_digit(int number) {
-    if (number < 10) {
-        _putchar('0');
-    }
-    printf("%d", number);
-}
-
-/* Function to print the specified format using _putchar */
-void print_sequence() {
-    for (int i = 0; i <= 10; i++) {
-        print_two_digit(i);
-
-        if (i < 10) {
-            _putchar(',');
-            _putchar(' ');
+    // Iterate through numbers from 1 to 9
+    for (int number = 1; number < 10; number++) {
+        // Check if the number is a multiple of both 3 and 5
+        if (number % 3 == 0 || number % 5 == 0) {
+            // Add the number to the sum
+            sum += number;
         }
     }
-    _putchar('\n');
-}
 
-int main(void) {
-    // Example: print the specified format
-    print_sequence();
+    // Print the sum
+    printf("Sum: %d\n", sum);
 
     return 0;
 }
-
