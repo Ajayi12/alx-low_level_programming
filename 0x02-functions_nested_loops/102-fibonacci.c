@@ -13,7 +13,14 @@ int main(void)
 	while (n < 50)
 	{
 		next = first + second;
-		printf("%ld, ", next);
+		if (n != 49)
+		{	
+			printf("%ld, ", next);
+		}
+		else
+		{
+			printf("%ld ", next);
+		}
 		first = second;
 		second = next;
 		n++;
