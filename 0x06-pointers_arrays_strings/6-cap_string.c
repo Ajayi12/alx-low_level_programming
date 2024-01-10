@@ -9,6 +9,7 @@ char *cap_string(char *str)
 {
 	int firstchar = 1;
 	int i = 0;
+
 	while (str[i] != '\0')
 	{
 		if (isspace((unsigned char)str[i]) || ispunct((unsigned char)str[i]))
