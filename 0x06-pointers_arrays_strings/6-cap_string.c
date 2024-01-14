@@ -12,10 +12,10 @@ char *cap_string(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (ispunct((unsigned char)str[i - 1]) || str[i - 1] == ' '
-		|| str[i - 1] == '\t' || str[i - 1] == '\n' || str[i - 1] == '{' || str[i - 1] == '}')
+		|| str[i - 1] == '\t' || str[i - 1] == '\n')
 		{
 			str[i] = toupper(str[i]);
-		}	
+		}
 	}
 	return (str);
 }
