@@ -7,32 +7,21 @@
  */
 char *leet(char *str)
 {
-	int i;
+	int i, n;
+	char *replace = "aeotl";
+	char *replace2 = "AEOTL";
+	char *replace1 = "43071";
 
-	i = 0;
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == 'a' || str[i] == 'A')
+		for (n = 0; replace[n] != '\0'; n++)
 		{
-			str[i] = 52;
+			if (str[i] == replace[n] || str[i] == replace2[n])
+			{
+				str[i] = replace1[n];
+				break;
+			}
 		}
-		else if (str[i] == 'e' || str[i] == 'E')
-		{
-			str[i] = 51;
-		}
-		else if (str[i] == 'o' || str[i] == 'O')
-		{
-			str[i] = 48;
-		}
-		else if (str[i] == 't' || str[i] == 'T')
-		{
-			str[i] = 55;
-		}
-		else if (str[i] == 'l' || str[i] == 'L')
-		{
-			str[i] = 49;
-		}
-		i++;
 	}
 	return (str);
 }

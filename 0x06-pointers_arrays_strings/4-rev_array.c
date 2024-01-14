@@ -7,18 +7,12 @@
  */
 void reverse_array(int *a, int n)
 {
-	int element1, new_length;
+	int i, temp;
 
-	new_length = n - 1;
-	element1 = 0;
-	while (new_length >= element1)
+	for (i = 0; i < n / 2; i++)
 	{
-		printf("%d", a[new_length]);
-		if (a[new_length] > 0)
-		{
-			printf(", ");
-		}
-		new_length--;
+		temp = a[i];
+		a[i] = a[n - 1 - i];
+		a[n - 1 - i] = temp;
 	}
-	printf("\n");
 }

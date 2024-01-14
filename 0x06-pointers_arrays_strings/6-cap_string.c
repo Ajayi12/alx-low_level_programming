@@ -7,21 +7,15 @@
  */
 char *cap_string(char *str)
 {
-	int firstchar = 1;
-	int i = 0;
+	int i;
 
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (isspace((unsigned char)str[i]) || ispunct((unsigned char)str[i]))
+		if (ispunct((unsigned char)str[i - 1]) || str[i - 1] == ' '
+		|| str[i - 1] == '\t' || str[i - 1] == '\n' || str[i - 1] == '{' || str[i - 1] == '}')
 		{
-			firstchar = 1;
-		}
-		else if (firstchar)
-		{
-			str[i] = toupper((unsigned char)str[i]);
-			firstchar = 0;
-		}
-		i++;
+			str[i] = toupper(str[i]);
+		}	
 	}
 	return (str);
 }
