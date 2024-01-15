@@ -7,26 +7,18 @@
  */
 char *rot13(char *str)
 {
-        char *replace = "abcdefghijklmABCDEFGHIJKLM";
-	char *newchar = "nopqrstuvwxyzNOPQRSTUVWXYZ";
-	int length = strlen(str);
-	int length2 = strlen(replace);
-	int length3 = strlen(newchar);
-	int i = 0;
+	int i;
 
-	while (i <= length)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		int n = 0;
-		while (n <= length2)
+		char c = str[i];
+
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		{
-			int c = 0;
-			if (str[i] == replace[n])
-			{
-				
-			}
-			n++;
+			char base = (c >= 'a' && c <= 'z') ? 'a' : 'A';
+
+			str[i] = (c - base + 13) % 26 + base;
 		}
-		i++;
 	}
 	return (str);
-}                 
+}
