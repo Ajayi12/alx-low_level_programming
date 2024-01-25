@@ -1,0 +1,6 @@
+#!/bin/bash
+git config --global user.name "Ajayi12"
+git config --global user.email "timothyajayi58@gmail.com"
+git add .
+git commit -m 'alx project'
+git push
