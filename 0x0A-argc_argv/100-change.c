@@ -22,11 +22,14 @@ int main(int argc, char *argv[])
 	}
 	count = 0;
 	length = sizeof(div_arr) / sizeof(int);
-	for (i = 0; i < length; i++)
+	if (argc > 1)
 	{
-		result = div(cents, div_arr[i]);
-		count += result.quot;
-		cents = result.rem;
+		for (i = 0; i < length; i++)
+		{
+			result = div(cents, div_arr[i]);
+			count += result.quot;
+			cents = result.rem;
+		}
 	}
 	printf("%d\n", count);
 	return (0);
