@@ -20,12 +20,17 @@ int **alloc_grid(int width, int height)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < width; i++)
+	for (i = 0; i < height; i++)
 	{
-		ptr[i] = (int *)malloc(height * sizeof(int));
+		ptr[i] = (int *)malloc(width * sizeof(int));
 		if (ptr[i] == NULL)
 		{
 			fprintf(stderr, "Error: failed to allocate memory\n");
+			for (i = 0; i < height; i++)
+			{
+				free (ptr[i]);
+			}
+			free(ptr);
 			return (NULL);
 		}
 	}
