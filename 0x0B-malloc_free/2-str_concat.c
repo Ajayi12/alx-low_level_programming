@@ -13,8 +13,9 @@ char *str_concat(char *s1, char *s2)
 	int i, result, result1, result3;
 	char *ptr;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 	{
+		fprintf(stderr, "Error: both string must be non null");
 		return (NULL);
 	}
 	result = strlen(s1);
