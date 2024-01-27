@@ -26,7 +26,7 @@ int **alloc_grid(int width, int height)
 		if (ptr[i] == NULL)
 		{
 			fprintf(stderr, "Error: failed to allocate memory\n");
-			for (j = 0; j < height; j++)
+			for (j = 0; j < i; j++)
 			{
 				free(ptr[j]);
 			}
