@@ -11,10 +11,15 @@
 char *_strdup(char *str)
 {
 	char *ptr;
-
+	
+	if (str == NULL)
+	{
+		return (NULL);
+	}
 	ptr = strdup(str);
 	if (ptr == NULL)
 	{
+		fprintf(stderr, "Error: failed toallocate memory\n");
 		return (NULL);
 	}
 	return (ptr);
