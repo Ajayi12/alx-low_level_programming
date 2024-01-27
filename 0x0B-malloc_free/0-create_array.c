@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * create_array - function that create an array of char 
- * @size: unsigned interger value of the parameter 
+ * create_array - function that create an array of char
+ * @size: unsigned interger value of the parameter
  * @c: character value of the parameter
  * Return: Always 0 (success)
  */
@@ -16,7 +16,7 @@ char *create_array(unsigned int size, char c)
 	{
 		return (NULL);
 	}
-	ptr = (char*)malloc(size * sizeof(char));
+	ptr = (char *)malloc(size * sizeof(char));
 	if (ptr == NULL)
 	{
 		return (NULL);
