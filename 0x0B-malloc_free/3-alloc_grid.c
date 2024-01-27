@@ -9,7 +9,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **ptr, i;
+	int **ptr, i, j;
 
 	if (width <= 0 && height <= 0)
 	{
@@ -26,9 +26,9 @@ int **alloc_grid(int width, int height)
 		if (ptr[i] == NULL)
 		{
 			fprintf(stderr, "Error: failed to allocate memory\n");
-			for (i = 0; i < height; i++)
+			for (j = 0; j < height; j++)
 			{
-				free(ptr[i]);
+				free(ptr[j]);
 			}
 			free(ptr);
 			return (NULL);
