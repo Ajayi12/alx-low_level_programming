@@ -28,7 +28,7 @@ char *argstostr(int ac, char **av)
 	if (ptr == NULL)
 	{
 		fprintf(stderr, "Error: failed to allocate memory\n");
-		return NULL;
+		return (NULL);
 	}
 	for (i = 0; i < ac; i++)
 	{
