@@ -14,9 +14,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *str;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL)
 	{
-		return (NULL);
+		s1 ="";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
 	}
 	str = lenny(s1, s2, n);
 	return (str);
@@ -31,41 +35,26 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 char *lenny(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	unsigned int i, length1, length2;
+	unsigned int i, length1, length2, j;
 
 	length1 = strlen(s1);
 	length2 = strlen(s2);
-	if (n < length2)
-	{
-		ptr = (char *)malloc((length1 + 1 + n) * sizeof(char));
-		if (ptr == NULL)
-		{
-			return (NULL);
-		}
-		for (i = 0; i < length1; i++)
-		{
-			ptr[i] = s1[i];
-		}
-		for (i = 0; i < n; i++)
-		{
-			ptr[length1 + i] = s2[i];
-		}
-	}
 	if (n >= length2)
 	{
-		ptr = (char *)malloc((length1 + 1 + length2) * sizeof(char));
-		if (ptr == NULL)
-		{
-			return (NULL);
-		}
-		for (i = 0; i < length1; i++)
-		{
-			ptr[i] = s1[i];
-		}
-		for (i = 0; i < length2; i++)
-		{
-			ptr[length1 - 1 + i] = s2[i];
-		}
+		n = length2;
+	}
+	ptr = (char *)malloc((length1 + 1 + n) * sizeof(char));
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i < length1; i++)
+	{
+		ptr[i] = s1[i];
+	}
+	for (j = 0; j < n; j++)
+	{
+		ptr[length1 + j] = s2[j];
 	}
 	return (ptr);
 }
