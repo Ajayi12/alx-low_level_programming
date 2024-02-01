@@ -7,24 +7,34 @@
  * @argv: argument of the function
  * Return: Always 0 (success);
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int arg, arg2, result;
-	char *arg1 = argv[2];
+	int a, b;
+	int (*operation)(int, int);
 
-	arg = atoi(argv[1]);
-	arg2 = atoi(argv[3]);
 	if (argc != 4)
 	{
-		fprintf(stderr, "Error\n");
+		printf("Error\n");
 		exit(98);
 	}
-	if ((*arg1 == '/' || *arg1 == '%') && arg2 == 0)
+
+	if (argv[2][1])
 	{
-		fprintf(stderr, "Error\n");
-		exit(100);
+		printf("Error\n");
+		exit(99);
 	}
-	result = get_op_func(arg1)(arg, arg2);
-	printf("%d\n", result);
+
+	operation = get_op_func(argv[2]);
+
+	if (operation == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+
+	printf("%d\n", operation(a, b));
 	return (0);
 }
