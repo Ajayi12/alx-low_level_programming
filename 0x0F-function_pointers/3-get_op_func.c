@@ -8,18 +8,22 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
-	size_t i;
-	char operators[] = {'+', '_', '*', '/', '%'};
-	int (*operation[])(int, int) = {op_add, op_sub, op_mul, op_div, op_mod};
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i = 0;
 
-	for (i = 0; i < sizeof(operators) / sizeof(char); i++)
+	while (i < 10)
 	{
-		if (s[0] == operators[i])
-		{
-			return (operation[i]);
-		}
+		if (s[0] == ops->op[i])
+			break;
+		i++;
 	}
-	fprintf(stderr, "Error\n");
-	exit(99);
-	return (NULL);
+
+	return (ops[i / 2].f);
 }
