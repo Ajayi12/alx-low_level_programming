@@ -10,9 +10,9 @@ int main(int argc, char *argv[])
 	int a, b;
 	int (*operation)(int, int) = get_op_func(argv[2]);
 
-	if (operation = NULL)
+	if (operation == NULL)
 	{
-		fprinf(stderr, "Error\n");
+		fprintf(stderr, "Error\n");
 		exit(99);
 	}
 	if (argc != 4)
