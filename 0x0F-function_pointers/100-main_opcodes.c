@@ -24,7 +24,11 @@ int main(int argc, char **argv)
 	}
 	for (i = 0; i < number; i++)
 	{
-		printf("%02x ", ptr[i]);
+		printf("%02x", ptr[i]);
+		if (i != number - 1)
+		{
+			printf(" ");
+		}
 	}
 	printf("\n");
 	return (0);
