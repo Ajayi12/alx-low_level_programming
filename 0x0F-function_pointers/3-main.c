@@ -8,13 +8,8 @@
 int main(int argc, char *argv[])
 {
 	int a, b;
-	int (*operation)(int, int) = get_op_func(argv[2]);
+	int (*operation)(int, int);
 
-	if (operation == NULL)
-	{
-		fprintf(stderr, "Error\n");
-		exit(99);
-	}
 	if (argc != 4)
 	{
 		fprintf(stderr, "Error\n");
@@ -22,6 +17,12 @@ int main(int argc, char *argv[])
 	}
 
 	if (argv[2][1])
+	{
+		fprintf(stderr, "Error\n");
+		exit(99);
+	}
+	operation = get_op_func(argv[2]);
+	if (operation == NULL)
 	{
 		fprintf(stderr, "Error\n");
 		exit(99);
