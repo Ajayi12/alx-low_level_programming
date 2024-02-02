@@ -1,6 +1,4 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
  * op_add - function that add two interger
  * @a: interger value of the parameter
