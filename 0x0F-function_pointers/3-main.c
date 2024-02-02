@@ -1,6 +1,4 @@
 #include "3-calc.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
  * main - function that operate base on given operations;
  * @argc: interger value of the parameter
