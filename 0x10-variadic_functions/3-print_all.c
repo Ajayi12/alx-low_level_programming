@@ -9,10 +9,8 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	int i, n, j, length;
-	char *s;
-	char c;
+	char *s, c, *sep = "cifs";
 	float f;
-	char *sep = "cifs";
 
 	length = strlen(format);
 	va_start(args, format);
@@ -20,10 +18,10 @@ void print_all(const char * const format, ...)
 	while (format[n] != '\0')
 	{
 		j = 0;
-		switch(format[n])
+		switch (format[n])
 		{
 			case 'c':
-				c = (char) va_arg(args, int);
+				c = (char)va_arg(args, int);
 				printf("%c", c);
 				break;
 			case 'i':
@@ -31,15 +29,13 @@ void print_all(const char * const format, ...)
 				printf("%d", i);
 				break;
 			case 'f':
-				f =(float) va_arg(args, double);
+				f = (float)va_arg(args, double);
 				printf("%f", f);
 				break;
 			case 's':
 				s = va_arg(args, char *);
-				if ( s == NULL)
-				{
+				if (s == NULL)
 					printf("(nil)");
-				}
 				printf("%s", s);
 				break;
 		}
