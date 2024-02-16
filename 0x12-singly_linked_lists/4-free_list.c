@@ -4,7 +4,7 @@
  * @head: argument
  * Return: Always 0 (success)
  */
-void free_list(list_t *head)
+void free_list(list_t **head)
 {
 	list_t *temp, *prev;
 
