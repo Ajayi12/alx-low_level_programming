@@ -74,6 +74,10 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int *val, real_length, i, count, result, n, length2;
 
+	if (b == NULL)
+	{
+		return (0);
+	}
 	real_length = _length(b);
 	val = real_value(b);
 	count = 0;
