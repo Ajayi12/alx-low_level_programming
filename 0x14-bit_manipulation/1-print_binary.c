@@ -14,10 +14,10 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	for (i = (sizeof(unsigned long int) * 8) - 1; i >= 0; i--)
+	mask = sizeof(unsigned long int) * CHAR_BIT;
+	for (i = mask - 1; i >= 0; i--)
 	{
-		mask = 1UL << i;
-		bit = (n & mask) ? 1 : 0;
+		bit = (n >> i) & 1;
 
 		if (bit == 1)
 		{
