@@ -14,7 +14,7 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	for (i = 63; i >= 0; i--)
+	for (i = (sizeof(unsigned long int) * 8) - 1; i >= 0; i--)
 	{
 		mask = 1UL << i;
 		bit = (n & mask) ? 1 : 0;
