@@ -6,15 +6,15 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int start_point, bit, i;
-	unsigned long int mask;
+	int mask;
+	int i, start_point, bit;
 
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
 	}
-	for (i = sizeof(unsigned long int) * 8; i > 0; i--)
+	for (i = 63; i >= 0; i--)
 	{
 		mask = 1UL << i;
 		bit = (n & mask) ? 1 : 0;
