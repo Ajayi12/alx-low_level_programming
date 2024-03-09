@@ -29,7 +29,7 @@ ssize_t rep_file2(const char *str, int file2)
 	}
 	if (close(rep_file2) == -1)
 	{
-		dprintf(2, "can't close fd");
+		dprintf(2, "Error: Can't close fd");
 		exit(100);
 	}
 	return (byte_write);
@@ -70,7 +70,7 @@ int main(int ac, char **av)
 	}
 	if (close(rep_file) == -1)
 	{
-		dprintf(2, "can't close fd");
+		dprintf(2, "Error: Can't close fd");
 		exit(100);
 	}
 	return (0);
