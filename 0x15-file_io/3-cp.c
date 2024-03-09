@@ -70,7 +70,7 @@ int main(int ac, char **av)
 	}
 	if (close(rep_file) == -1)
 	{
-		dprintf(2, "can't close fd", rep_file);
+		dprintf(2, "can't close fd");
 		exit(100);
 	}
 	return (0);
