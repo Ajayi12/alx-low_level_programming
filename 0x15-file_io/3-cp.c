@@ -2,13 +2,14 @@
 /**
  * rep_file2 - function that read from a file
  * @str: pointer to the file name
+ * @file2: file descriptor value of the parameter
  * Return: Always 0 (success)
  */
-char *rep_file2(const char *str)
+ssize_t rep_file2(const char *str, int file2)
 {
 	int rep_file2;
 	static char buffer[1024];
-	ssize_t byte_return;
+	ssize_t byte_return, byte_write;
 
 	rep_file2 = open(str, O_RDONLY);
 	if (rep_file2 == -1)
@@ -16,7 +17,10 @@ char *rep_file2(const char *str)
 		dprintf(2, "Error: Can't read from %s\n", str);
 		exit(98);
 	}
-	byte_return = read(rep_file2, buffer, sizeof(buffer));
+	while ((byte_return = read(rep_file2, buffer, sizeof(buffer))) > 0)
+	{
+		byte_write = write(file2, buffer, byte_return);
+	}
 	if (byte_return == -1)
 	{
 		dprintf(2, "Error: Can't read from %s\n", str);
@@ -28,7 +32,7 @@ char *rep_file2(const char *str)
 		dprintf(2, "can't close %d\n", rep_file2);
 		exit(100);
 	}
-	return (buffer);
+	return (byte_write);
 }
 /**
  * main - function that copy from one file to another
@@ -38,13 +42,12 @@ char *rep_file2(const char *str)
  */
 int main(int ac, char **av)
 {
-	char *buffer;
 	int rep_file;
 	ssize_t byte_write;
 
 	if (ac != 3)
 	{
-		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	rep_file = open(av[2], O_WRONLY | O_CREAT | O_EXCL, S_IRUSR | S_IWUSR |
@@ -58,8 +61,7 @@ int main(int ac, char **av)
 			exit(99);
 		}
 	}
-	buffer = rep_file2(av[1]);
-	byte_write = write(rep_file, buffer, strlen(buffer));
+	byte_write = rep_file2(av[1], rep_file);
 	if (byte_write == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", av[2]);
