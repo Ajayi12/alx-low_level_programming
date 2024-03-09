@@ -14,7 +14,7 @@ ssize_t rep_file2(const char *str, int file2)
 	rep_file2 = open(str, O_RDONLY);
 	if (rep_file2 == -1)
 	{
-		dprintf(2, "Error: Can't read from %s\n", str);
+		dprintf(1, "Error: Can't read from file %s\n", str);
 		exit(98);
 	}
 	while ((byte_return = read(rep_file2, buffer, sizeof(buffer))) > 0)
@@ -23,13 +23,13 @@ ssize_t rep_file2(const char *str, int file2)
 	}
 	if (byte_return == -1)
 	{
-		dprintf(2, "Error: Can't read from %s\n", str);
+		dprintf(2, "Error: Can't read from file %s\n", str);
 		close(rep_file2);
 		exit(98);
 	}
 	if (close(rep_file2) == -1)
 	{
-		dprintf(2, "can't close %d\n", rep_file2);
+		dprintf(2, "can't close fd");
 		exit(100);
 	}
 	return (byte_write);
@@ -70,7 +70,7 @@ int main(int ac, char **av)
 	}
 	if (close(rep_file) == -1)
 	{
-		dprintf(2, "can't close %d\n", rep_file);
+		dprintf(2, "can't close fd", rep_file);
 		exit(100);
 	}
 	return (0);
